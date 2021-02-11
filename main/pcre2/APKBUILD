@@ -11,9 +11,12 @@ depends_dev="libedit-dev zlib-dev"
 makedepends="$depends_dev"
 subpackages="$pkgname-dev $pkgname-doc $pkgname-tools
 	libpcre2-16:_libpcre libpcre2-32:_libpcre"
-source="https://ftp.pcre.org/pub/pcre/pcre2-$pkgver.tar.gz"
+source="https://ftp.pcre.org/pub/pcre/pcre2-$pkgver.tar.gz
+	0001-pcre2-riscv64-support.patch
+"
 
 case "$CARCH" in
+	riscv64) _enable_jit="";; # fix compile
 	s390x) _enable_jit="";; # https://bugs.exim.org/show_bug.cgi?id=2468
 	*) _enable_jit="--enable-jit";;
 esac
@@ -34,8 +37,6 @@ build() {
 		--htmldir=/usr/share/doc/$pkgname-$pkgver/html \
 		--enable-pcre2-16 \
 		--enable-pcre2-32 \
-		--enable-pcre2grep-libz \
-		--enable-pcre2test-libedit \
 		--with-match-limit-depth=8192 \
 		$_enable_jit
 	make
@@ -70,4 +71,5 @@ tools() {
 	mv "$pkgdir"/usr/bin "$subpkgdir"/usr/
 }
 
-sha512sums="a776cda406aea4a30f5072b24fc41bafd580d92e6d7c782b3c5468570f58fb085184ff707d90d8e83662f578c4327178f5ff4236222d0b3ca07244ef70528aa8  pcre2-10.36.tar.gz"
+sha512sums="a776cda406aea4a30f5072b24fc41bafd580d92e6d7c782b3c5468570f58fb085184ff707d90d8e83662f578c4327178f5ff4236222d0b3ca07244ef70528aa8  pcre2-10.36.tar.gz
+b8c8b5ca9f79b79ad78636bf4e3d36864c26b64a618a810a76ed0c026f9b530bfba3561269cadd9e54ee3ba47bc02c8bac18ffbd1cd25037bfdee25a081fc125  0001-pcre2-riscv64-support.patch"

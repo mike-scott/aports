@@ -31,6 +31,7 @@ package() {
 	aarch64*) _carch="arm64" ;;
 	arm*) _carch="arm" ;;
 	mips*) _carch="mips" ;;
+	riscv*) _carch="riscv" ;;
 	s390*) _carch="s390" ;;
 	ppc*) _carch="powerpc" ;;
 # not sure about this --	ppc64*) _carch="powerpc64" ;;

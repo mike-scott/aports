@@ -9,7 +9,9 @@ license="ISC"
 replaces="pkgconfig"
 provides="pkgconfig=1"
 subpackages="$pkgname-doc $pkgname-dev"
-source="https://distfiles.dereferenced.org/pkgconf/pkgconf-$pkgver.tar.xz"
+source="https://distfiles.dereferenced.org/pkgconf/pkgconf-$pkgver.tar.xz
+        0001-pkgconf-riscv64-support.patch
+"
 checkdepends="kyua atf"
 
 build() {
@@ -45,4 +47,5 @@ dev() {
 	mv "$subpkgdir"/usr/share/aclocal/pkg.m4 "$pkgdir"/usr/share/aclocal/
 }
 
-sha512sums="37b6c4f9f3b93970e35b6970fde22fbbde65e7fa32a5634b3fdfc25cc1f33843582722ad13d9a8e96fd6768406fcbe86bf5feb76996ddd0bb66d6ff91e65f0b6  pkgconf-1.7.3.tar.xz"
+sha512sums="37b6c4f9f3b93970e35b6970fde22fbbde65e7fa32a5634b3fdfc25cc1f33843582722ad13d9a8e96fd6768406fcbe86bf5feb76996ddd0bb66d6ff91e65f0b6  pkgconf-1.7.3.tar.xz
+c61c2856b58655971d28b872a9616876424c1e563eeaef51253ed92353f08872f2b8e7629dd60eb8952236cfc07320c0656d96a751ecde67839be7692d5e2d42  0001-pkgconf-riscv64-support.patch"

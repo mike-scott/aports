@@ -1,0 +1,25 @@
+From 717e47ec6c193b1523ddf1d092885b4fd297a975 Mon Sep 17 00:00:00 2001
+From: Michael Scott <mike@foundries.io>
+Date: Thu, 12 Nov 2020 14:24:28 -0800
+Subject: [PATCH] isl riscv64 support
+
+Signed-off-by: Michael Scott <mike@foundries.io>
+---
+ config.sub | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/config.sub b/config.sub
+index bba4efb..b02342b 100755
+--- a/config.sub
++++ b/config.sub
+@@ -424,6 +424,7 @@ case $basic_machine in
+ 	| pdp10-* | pdp11-* | pj-* | pjl-* | pn-* | power-* \
+ 	| powerpc-* | powerpc64-* | powerpc64le-* | powerpcle-* \
+ 	| pyramid-* \
++	| riscv32-* | riscv64-* \
+ 	| rl78-* | romp-* | rs6000-* | rx-* \
+ 	| sh-* | sh[1234]-* | sh[24]a-* | sh[24]aeb-* | sh[23]e-* | sh[34]eb-* | sheb-* | shbe-* \
+ 	| shle-* | sh[1234]le-* | sh3ele-* | sh64-* | sh64le-* \
+-- 
+2.29.2
+

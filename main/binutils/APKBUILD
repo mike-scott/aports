@@ -108,7 +108,9 @@ gold() {
 		mv "$pkgdir"/usr/bin/ld.gold "$subpkgdir"/usr/bin
 	fi
 	mkdir -p "$subpkgdir"/usr/$CTARGET/bin
-	mv "$pkgdir"/usr/$CTARGET/bin/ld.gold "$subpkgdir"/usr/$CTARGET/bin/ld.gold
+	if [ -e "$pkgdir"/usr/$CTARGET/bin/ld.gold ]; then
+		mv "$pkgdir"/usr/$CTARGET/bin/ld.gold "$subpkgdir"/usr/$CTARGET/bin/ld.gold
+	fi
 }
 
 sha512sums="94ff72708403413b70b247f3af4099ebaa882b6659249869f1ed9941a0f1912e313f08357d470f9fd2359e7f5e5b0eb86285e5eaf883fa8187789d6b1bd304eb  binutils-2.35.1.tar.xz

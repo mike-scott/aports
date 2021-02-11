@@ -6,7 +6,7 @@ TARGET_ARCH="$1"
 SUDO_APK=abuild-apk
 
 # optional cross build packages
-: ${KERNEL_PKG=linux-firmware linux-lts}
+: ${KERNEL_PKG=linux-firmware}
 
 # get abuild configurables
 [ -e /usr/share/abuild/functions.sh ] || (echo "abuild not found" ; exit 1)
@@ -95,20 +95,21 @@ msg "Cross building base system"
 EXTRADEPENDS_TARGET="libgcc libstdc++ musl-dev"
 
 # ordered cross-build
+EXTRAPACKAGES="mosquitto nano"
 for PKG in fortify-headers linux-headers musl libc-dev pkgconf zlib \
-	   openssl ca-certificates libbsd libtls-standalone busybox busybox-initscripts binutils make \
-	   apk-tools file \
-	   gmp mpfr4 mpc1 isl22 cloog libucontext gcc \
+	   gmp mpfr4 mpc1 isl22 cloog libucontext gcc binutils make file \
 	   openrc alpine-conf alpine-baselayout alpine-keys alpine-base patch build-base \
+	   openssl ca-certificates libbsd libtls-standalone busybox busybox-initscripts \
+	   apk-tools \
 	   attr libcap acl fakeroot tar \
 	   pax-utils lzip abuild ncurses libedit openssh \
 	   libcap-ng util-linux libaio lvm2 popt xz \
-	   json-c argon2 cryptsetup kmod lddtree mkinitfs \
+	   json-c argon2 cryptsetup zstd kmod lddtree mkinitfs \
 	   community/go libffi community/ghc \
 	   brotli libev c-ares cunit nghttp2 curl \
-	   pcre libssh2 community/http-parser community/libgit2 \
-	   libxml2 llvm10 community/rust \
-	   $KERNEL_PKG ; do
+	   pcre2 libssh2 community/http-parser community/libgit2 \
+	   libxml2 \
+	   $KERNEL_PKG $EXTRAPACKAGES; do
 
 	EXTRADEPENDS_TARGET="$EXTRADEPENDS_TARGET" \
 	CHOST=$TARGET_ARCH BOOTSTRAP=bootimage APKBUILD=$(apkbuildname $PKG) abuild -r

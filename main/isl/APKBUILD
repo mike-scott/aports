@@ -12,7 +12,9 @@ makedepends_host="$depends_dev"
 makedepends="$makedepends_host"
 replaces="cloog"
 subpackages=""
-source="http://isl.gforge.inria.fr/isl-$pkgver.tar.bz2"
+source="http://isl.gforge.inria.fr/isl-$pkgver.tar.bz2
+        0001-isl-riscv64-support.patch
+"
 
 builddir="$srcdir"/$pkgname-$pkgver
 
@@ -42,4 +44,5 @@ package() {
 		"$pkgdir"/usr/lib/*.py
 }
 
-sha512sums="85d0b40f4dbf14cb99d17aa07048cdcab2dc3eb527d2fbb1e84c41b2de5f351025370e57448b63b2b8a8cf8a0843a089c3263f9baee1542d5c2e1cb37ed39d94  isl-0.18.tar.bz2"
+sha512sums="85d0b40f4dbf14cb99d17aa07048cdcab2dc3eb527d2fbb1e84c41b2de5f351025370e57448b63b2b8a8cf8a0843a089c3263f9baee1542d5c2e1cb37ed39d94  isl-0.18.tar.bz2
+2250aa6196b194368654ceba6faebfd3e759526b3263b7e55de5f2b87a880b1827fac353b1db200ea3782ca827462bdb8c896b1af40f0126096da42beb9ce2c2  0001-isl-riscv64-support.patch"

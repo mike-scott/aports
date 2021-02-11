@@ -1,0 +1,33 @@
+From d4c12ea87833c084688075e776d901fc76d2bf4e Mon Sep 17 00:00:00 2001
+From: Michael Scott <mike@foundries.io>
+Date: Thu, 12 Nov 2020 20:03:37 -0800
+Subject: [PATCH] lvm2 riscv64 support
+
+Signed-off-by: Michael Scott <mike@foundries.io>
+---
+ autoconf/config.sub | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/autoconf/config.sub b/autoconf/config.sub
+index 092cff0..3680320 100755
+--- a/autoconf/config.sub
++++ b/autoconf/config.sub
+@@ -301,6 +301,7 @@ case $basic_machine in
+ 	| pdp10 | pdp11 | pj | pjl \
+ 	| powerpc | powerpc64 | powerpc64le | powerpcle \
+ 	| pyramid \
++	| riscv32 | riscv64 \
+ 	| rl78 | rx \
+ 	| score \
+ 	| sh | sh[1234] | sh[24]a | sh[24]aeb | sh[23]e | sh[34]eb | sheb | shbe | shle | sh[1234]le | sh3ele \
+@@ -419,6 +420,7 @@ case $basic_machine in
+ 	| pdp10-* | pdp11-* | pj-* | pjl-* | pn-* | power-* \
+ 	| powerpc-* | powerpc64-* | powerpc64le-* | powerpcle-* \
+ 	| pyramid-* \
++	| riscv32-* | riscv64-* \
+ 	| rl78-* | romp-* | rs6000-* | rx-* \
+ 	| sh-* | sh[1234]-* | sh[24]a-* | sh[24]aeb-* | sh[23]e-* | sh[34]eb-* | sheb-* | shbe-* \
+ 	| shle-* | sh[1234]le-* | sh3ele-* | sh64-* | sh64le-* \
+-- 
+2.29.2
+

@@ -32,7 +32,8 @@ ${APK:-apk} add --keys-dir "$keys_dir" --no-cache \
 	--repositories-file "$repositories_file" \
 	--no-script --root "$tmp" --initdb --arch "$arch" \
 	"$@"
-for link in $("$tmp"/bin/busybox --list-full); do
+local_dir=$(dirname $0)
+for link in $(cat ${local_dir}/busybox-applet.txt); do
 	[ -e "$tmp"/$link ] || ln -s /bin/busybox "$tmp"/$link
 done
 
@@ -50,9 +51,11 @@ case $VERSION_ID in
 *.*.*) branch=v${VERSION_ID%.*};;
 esac
 
+cp -r ${keys_dir}/* ${tmp}/etc/apk/keys/
+
 cat > "$tmp"/etc/apk/repositories <<EOF
-https://dl-cdn.alpinelinux.org/alpine/$branch/main
-https://dl-cdn.alpinelinux.org/alpine/$branch/community
+http://192.168.101.11/main
+http://192.168.101.11/community
 EOF
 
 tar --numeric-owner --exclude='dev/*' -c -C "$tmp" . | gzip -9n > "$outfile"

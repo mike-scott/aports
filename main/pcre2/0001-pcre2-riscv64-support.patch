@@ -1,0 +1,26 @@
+From 4828176773ab98c847c70f10a84f805265b3d733 Mon Sep 17 00:00:00 2001
+From: Michael Scott <mike@foundries.io>
+Date: Wed, 10 Feb 2021 16:16:54 -0800
+Subject: [PATCH] pcre2 riscv64 support
+
+Signed-off-by: Michael Scott <mike@foundries.io>
+---
+ src/sljit/sljitConfigInternal.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/sljit/sljitConfigInternal.h b/src/sljit/sljitConfigInternal.h
+index eb1132d..61c13fc 100644
+--- a/src/sljit/sljitConfigInternal.h
++++ b/src/sljit/sljitConfigInternal.h
+@@ -156,6 +156,8 @@ extern "C" {
+ #define SLJIT_CONFIG_MIPS_32 1
+ #elif defined(__mips64)
+ #define SLJIT_CONFIG_MIPS_64 1
++#elif defined(__riscv64__)
++#define SLJIT_CONFIG_RISCV64 1
+ #elif defined(__sparc__) || defined(__sparc)
+ #define SLJIT_CONFIG_SPARC_32 1
+ #else
+-- 
+2.30.1
+

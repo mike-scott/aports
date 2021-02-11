@@ -1,0 +1,21 @@
+From 65eb86f3e110998d30489df009d44b4bc1043adc Mon Sep 17 00:00:00 2001
+From: Michael Scott <mike@foundries.io>
+Date: Sat, 31 Oct 2020 12:00:00 +0000
+Subject: pkgconf riscv64 support
+
+---
+ config.sub | 1 +-
+ 1 file changed, 1 insertions(+)
+
+diff --git a/config.sub b/config.sub
+index ffbb7f82cf5..b0b890d2403 100755
+--- a/config.sub
++++ b/config.sub
+@@ -428,6 +428,7 @@
+ 	| pdp10-* | pdp11-* | pj-* | pjl-* | pn-* | power-* \
+ 	| powerpc-* | powerpc64-* | powerpc64le-* | powerpcle-* \
+ 	| pyramid-* \
++	| riscv32-* | riscv64-* \
+ 	| rl78-* | romp-* | rs6000-* | rx-* \
+ 	| sh-* | sh[1234]-* | sh[24]a-* | sh[24]aeb-* | sh[23]e-* | sh[34]eb-* | sheb-* | shbe-* \
+ 	| shle-* | sh[1234]le-* | sh3ele-* | sh64-* | sh64le-* \

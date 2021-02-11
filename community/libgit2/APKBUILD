@@ -10,7 +10,7 @@ url="https://libgit2.org/"
 arch="all"
 license="GPL-2.0-only WITH GCC-exception-2.0"
 depends_dev="curl-dev libssh2-dev http-parser-dev"
-makedepends_host="$depends_dev zlib-dev openssl-dev pcre-dev"
+makedepends_host="$depends_dev zlib-dev openssl-dev pcre2-dev"
 makedepends_build="python3 cmake"
 subpackages="$pkgname-static $pkgname-dev $pkgname-tests::noarch"
 source="$pkgname-$pkgver.tar.gz::https://github.com/libgit2/libgit2/archive/v$pkgver.tar.gz
@@ -54,7 +54,7 @@ build() {
 		-DCMAKE_INSTALL_LIBDIR=lib \
 		-DUSE_HTTP_PARSER=system \
 		-DUSE_HTTPS=OpenSSL \
-		-DREGEX_BACKEND=pcre \
+		-DREGEX_BACKEND=pcre2 \
 		-DUSE_BUNDLED_ZLIB=OFF \
 		-DCMAKE_C_FLAGS="$CFLAGS"
 	make
@@ -69,7 +69,7 @@ build() {
 		-DCMAKE_INSTALL_LIBDIR=lib \
 		-DUSE_HTTP_PARSER=system \
 		-DUSE_HTTPS=OpenSSL \
-		-DREGEX_BACKEND=pcre \
+		-DREGEX_BACKEND=pcre2 \
 		-DUSE_BUNDLED_ZLIB=OFF \
 		-DCMAKE_C_FLAGS="$CFLAGS" \
 		-DBUILD_SHARED_LIBS=OFF

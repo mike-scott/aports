@@ -83,6 +83,7 @@ package() {
 	x86_64)		ARCH="x86_64" ;;
 	ppc)		ARCH="powerpc" ;;
 	ppc64*)		ARCH="powerpc64" ;;
+	riscv64)	ARCH="riscv64" ;;
 	s390*)		ARCH="s390x" ;;
 	mips64*)	ARCH="mips64" ;;
 	mips*)		ARCH="mips" ;;
@@ -155,6 +156,7 @@ compat() {
 	ppc)		_ld="lib/ld.so.1" ;;
 	ppc64)		_ld="lib64/ld64.so.1" ;;
 	ppc64le)	_ld="lib64/ld64.so.2" ;;
+	riscv64)	_ld="lib/ld64.so.1" ;;
 	s390x)		_ld="lib/ld64.so.1" ;;
 	x86)		_ld="lib/ld-linux.so.2" ;;
 	x86_64)		_ld="lib64/ld-linux-x86-64.so.2";;
